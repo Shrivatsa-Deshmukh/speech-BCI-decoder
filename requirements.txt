@@ -1,8 +1,9 @@
-# Training
+# Training (hydra-core is imported by src/neural_decoder/neural_decoder_trainer.py)
 torch>=1.13
 numpy
 scipy
 edit_distance
+hydra-core
 
 # Preprocessing notebook
 g2p_en

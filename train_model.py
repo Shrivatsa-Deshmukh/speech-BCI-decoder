@@ -31,8 +31,6 @@ args['strideLen'] = 4
 args['kernelLen'] = 32
 args['bidirectional'] = True
 args['l2_decay'] = 1e-5
-args['valFraction'] = 0.1       # share of each day's training trials held out for checkpoint selection
-args['evalEvery'] = 100         # evaluate on the validation split every N steps
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Train GRU phoneme decoder for Speech BCI')
@@ -40,8 +38,6 @@ if __name__ == '__main__':
                         help='Path to the preprocessed ptDecoder_ctc pickle')
     parser.add_argument('--output_dir', type=str, required=True,
                         help='Directory to save model weights and training stats')
-    parser.add_argument('--device', type=str, default=None,
-                        help='cuda, mps or cpu (default: best available)')
     parser.add_argument('--n_batch', type=int, default=None,
                         help=f"Override number of training steps (default: {args['nBatch']})")
     parser.add_argument('--seed', type=int, default=None,
@@ -50,7 +46,6 @@ if __name__ == '__main__':
 
     args['datasetPath'] = cli.dataset_path
     args['outputDir'] = cli.output_dir
-    args['device'] = cli.device
     if cli.n_batch is not None:
         args['nBatch'] = cli.n_batch
     if cli.seed is not None:
