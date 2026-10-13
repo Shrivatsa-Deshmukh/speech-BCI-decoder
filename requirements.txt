@@ -1,0 +1,10 @@
+# Training
+torch>=1.13
+numpy
+scipy
+edit_distance
+
+# Preprocessing notebook
+g2p_en
+jupyter
+matplotlib

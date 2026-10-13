@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neural_decoder"
+version = "0.2.0"
+description = "GRU + CTC phoneme decoder for intracortical speech BCI data (Willett et al., 2023)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+dependencies = [
+    "torch>=1.13",
+    "numpy",
+    "scipy",
+    "edit_distance",
+]
+
+[project.optional-dependencies]
+preprocess = ["g2p_en", "jupyter", "matplotlib"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
