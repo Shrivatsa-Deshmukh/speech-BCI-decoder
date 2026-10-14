@@ -7,7 +7,7 @@ A PyTorch implementation of the intracortical GRU phoneme decoder from [Willett 
 The code builds on [cffan/neural_seq_decoder](https://github.com/cffan/neural_seq_decoder), the PyTorch baseline released with the paper's dataset (see [Acknowledgements](#acknowledgements)).
 
 <p align="center">
-  <img src="docs/architecture.svg" alt="Speech BCI Decoder architecture" width="100%">
+  <img src="architecture.svg" alt="Speech BCI Decoder architecture" width="100%">
 </p>
 
 ---
