@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 354" width="960" height="354" role="img" aria-labelledby="t d">
+  <title id="t">Speech BCI Decoder overview</title>
+  <desc id="d">Neural recordings from 128 electrodes during attempted speech are decoded by a GRU phoneme decoder (this repo) into a phoneme sequence. The language model stage that turns phonemes into words is not implemented.</desc>
+  <style>
+    :root { --bg:#ffffff; --ink:#1f2328; --muted:#656d76; --faint:#d0d7de; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0d1117; --ink:#e6edf3; --muted:#8d96a0; --faint:#30363d; }
+    }
+    text { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; fill:var(--ink); }
+    .bg { fill:var(--bg); }
+    .h1 { font-size:20px; font-weight:600; }
+    .sub { font-size:12.5px; fill:var(--muted); }
+    .ttl { font-size:14px; font-weight:600; }
+    .tag { font-size:11px; font-weight:700; letter-spacing:0.12em; }
+    .row { font-size:13px; }
+    .rowd { font-size:12px; fill:var(--muted); }
+    .mono { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12.5px; }
+    .faded { fill:var(--muted); }
+    .big { font-size:30px; font-weight:700; }
+    .bigm { font-size:30px; font-weight:400; fill:var(--muted); }
+    .box { fill:none; stroke:var(--ink); stroke-width:1.2; }
+    .main { fill:none; stroke:var(--ink); stroke-width:2.2; }
+    .ghost { fill:none; stroke:var(--muted); stroke-width:1.2; stroke-dasharray:5 4; }
+    .rule { stroke:var(--faint); stroke-width:1; }
+    .arrow { stroke:var(--ink); stroke-width:1.5; fill:none; }
+    .arrowg { stroke:var(--muted); stroke-width:1.5; fill:none; stroke-dasharray:4 3; }
+    .head { fill:var(--ink); }
+    .headg { fill:var(--muted); }
+    .dot { fill:var(--ink); }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="head"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="headg"/></marker>
+  </defs>
+  <rect class="bg" width="960" height="354"/>
+
+  <text class="h1" x="20" y="34">Speech BCI Decoder</text>
+  <text class="sub" x="20" y="54">Decoding attempted speech from intracortical recordings into phonemes</text>
+
+  <!-- Input -->
+  <rect class="box" x="20" y="118" width="190" height="182" rx="8"/>
+  <g>
+    <circle class="dot" cx="73" cy="136" r="1.5"/>
+    <circle class="dot" cx="78" cy="136" r="1.5"/>
+    <circle class="dot" cx="83" cy="136" r="1.5"/>
+    <circle class="dot" cx="88" cy="136" r="1.5"/>
+    <circle class="dot" cx="93" cy="136" r="1.5"/>
+    <circle class="dot" cx="98" cy="136" r="1.5"/>
+    <circle class="dot" cx="103" cy="136" r="1.5"/>
+    <circle class="dot" cx="108" cy="136" r="1.5"/>
+    <circle class="dot" cx="73" cy="141" r="1.5"/>
+    <circle class="dot" cx="78" cy="141" r="1.5"/>
+    <circle class="dot" cx="83" cy="141" r="1.5"/>
+    <circle class="dot" cx="88" cy="141" r="1.5"/>
+    <circle class="dot" cx="93" cy="141" r="1.5"/>
+    <circle class="dot" cx="98" cy="141" r="1.5"/>
+    <circle class="dot" cx="103" cy="141" r="1.5"/>
+    <circle class="dot" cx="108" cy="141" r="1.5"/>
+    <circle class="dot" cx="73" cy="146" r="1.5"/>
+    <circle class="dot" cx="78" cy="146" r="1.5"/>
+    <circle class="dot" cx="83" cy="146" r="1.5"/>
+    <circle class="dot" cx="88" cy="146" r="1.5"/>
+    <circle class="dot" cx="93" cy="146" r="1.5"/>
+    <circle class="dot" cx="98" cy="146" r="1.5"/>
+    <circle class="dot" cx="103" cy="146" r="1.5"/>
+    <circle class="dot" cx="108" cy="146" r="1.5"/>
+    <circle class="dot" cx="73" cy="151" r="1.5"/>
+    <circle class="dot" cx="78" cy="151" r="1.5"/>
+    <circle class="dot" cx="83" cy="151" r="1.5"/>
+    <circle class="dot" cx="88" cy="151" r="1.5"/>
+    <circle class="dot" cx="93" cy="151" r="1.5"/>
+    <circle class="dot" cx="98" cy="151" r="1.5"/>
+    <circle class="dot" cx="103" cy="151" r="1.5"/>
+    <circle class="dot" cx="108" cy="151" r="1.5"/>
+    <circle class="dot" cx="73" cy="156" r="1.5"/>
+    <circle class="dot" cx="78" cy="156" r="1.5"/>
+    <circle class="dot" cx="83" cy="156" r="1.5"/>
+    <circle class="dot" cx="88" cy="156" r="1.5"/>
+    <circle class="dot" cx="93" cy="156" r="1.5"/>
+    <circle class="dot" cx="98" cy="156" r="1.5"/>
+    <circle class="dot" cx="103" cy="156" r="1.5"/>
+    <circle class="dot" cx="108" cy="156" r="1.5"/>
+    <circle class="dot" cx="73" cy="161" r="1.5"/>
+    <circle class="dot" cx="78" cy="161" r="1.5"/>
+    <circle class="dot" cx="83" cy="161" r="1.5"/>
+    <circle class="dot" cx="88" cy="161" r="1.5"/>
+    <circle class="dot" cx="93" cy="161" r="1.5"/>
+    <circle class="dot" cx="98" cy="161" r="1.5"/>
+    <circle class="dot" cx="103" cy="161" r="1.5"/>
+    <circle class="dot" cx="108" cy="161" r="1.5"/>
+    <circle class="dot" cx="73" cy="166" r="1.5"/>
+    <circle class="dot" cx="78" cy="166" r="1.5"/>
+    <circle class="dot" cx="83" cy="166" r="1.5"/>
+    <circle class="dot" cx="88" cy="166" r="1.5"/>
+    <circle class="dot" cx="93" cy="166" r="1.5"/>
+    <circle class="dot" cx="98" cy="166" r="1.5"/>
+    <circle class="dot" cx="103" cy="166" r="1.5"/>
+    <circle class="dot" cx="108" cy="166" r="1.5"/>
+    <circle class="dot" cx="73" cy="171" r="1.5"/>
+    <circle class="dot" cx="78" cy="171" r="1.5"/>
+    <circle class="dot" cx="83" cy="171" r="1.5"/>
+    <circle class="dot" cx="88" cy="171" r="1.5"/>
+    <circle class="dot" cx="93" cy="171" r="1.5"/>
+    <circle class="dot" cx="98" cy="171" r="1.5"/>
+    <circle class="dot" cx="103" cy="171" r="1.5"/>
+    <circle class="dot" cx="108" cy="171" r="1.5"/>
+    <circle class="dot" cx="122" cy="136" r="1.5"/>
+    <circle class="dot" cx="127" cy="136" r="1.5"/>
+    <circle class="dot" cx="132" cy="136" r="1.5"/>
+    <circle class="dot" cx="137" cy="136" r="1.5"/>
+    <circle class="dot" cx="142" cy="136" r="1.5"/>
+    <circle class="dot" cx="147" cy="136" r="1.5"/>
+    <circle class="dot" cx="152" cy="136" r="1.5"/>
+    <circle class="dot" cx="157" cy="136" r="1.5"/>
+    <circle class="dot" cx="122" cy="141" r="1.5"/>
+    <circle class="dot" cx="127" cy="141" r="1.5"/>
+    <circle class="dot" cx="132" cy="141" r="1.5"/>
+    <circle class="dot" cx="137" cy="141" r="1.5"/>
+    <circle class="dot" cx="142" cy="141" r="1.5"/>
+    <circle class="dot" cx="147" cy="141" r="1.5"/>
+    <circle class="dot" cx="152" cy="141" r="1.5"/>
+    <circle class="dot" cx="157" cy="141" r="1.5"/>
+    <circle class="dot" cx="122" cy="146" r="1.5"/>
+    <circle class="dot" cx="127" cy="146" r="1.5"/>
+    <circle class="dot" cx="132" cy="146" r="1.5"/>
+    <circle class="dot" cx="137" cy="146" r="1.5"/>
+    <circle class="dot" cx="142" cy="146" r="1.5"/>
+    <circle class="dot" cx="147" cy="146" r="1.5"/>
+    <circle class="dot" cx="152" cy="146" r="1.5"/>
+    <circle class="dot" cx="157" cy="146" r="1.5"/>
+    <circle class="dot" cx="122" cy="151" r="1.5"/>
+    <circle class="dot" cx="127" cy="151" r="1.5"/>
+    <circle class="dot" cx="132" cy="151" r="1.5"/>
+    <circle class="dot" cx="137" cy="151" r="1.5"/>
+    <circle class="dot" cx="142" cy="151" r="1.5"/>
+    <circle class="dot" cx="147" cy="151" r="1.5"/>
+    <circle class="dot" cx="152" cy="151" r="1.5"/>
+    <circle class="dot" cx="157" cy="151" r="1.5"/>
+    <circle class="dot" cx="122" cy="156" r="1.5"/>
+    <circle class="dot" cx="127" cy="156" r="1.5"/>
+    <circle class="dot" cx="132" cy="156" r="1.5"/>
+    <circle class="dot" cx="137" cy="156" r="1.5"/>
+    <circle class="dot" cx="142" cy="156" r="1.5"/>
+    <circle class="dot" cx="147" cy="156" r="1.5"/>
+    <circle class="dot" cx="152" cy="156" r="1.5"/>
+    <circle class="dot" cx="157" cy="156" r="1.5"/>
+    <circle class="dot" cx="122" cy="161" r="1.5"/>
+    <circle class="dot" cx="127" cy="161" r="1.5"/>
+    <circle class="dot" cx="132" cy="161" r="1.5"/>
+    <circle class="dot" cx="137" cy="161" r="1.5"/>
+    <circle class="dot" cx="142" cy="161" r="1.5"/>
+    <circle class="dot" cx="147" cy="161" r="1.5"/>
+    <circle class="dot" cx="152" cy="161" r="1.5"/>
+    <circle class="dot" cx="157" cy="161" r="1.5"/>
+    <circle class="dot" cx="122" cy="166" r="1.5"/>
+    <circle class="dot" cx="127" cy="166" r="1.5"/>
+    <circle class="dot" cx="132" cy="166" r="1.5"/>
+    <circle class="dot" cx="137" cy="166" r="1.5"/>
+    <circle class="dot" cx="142" cy="166" r="1.5"/>
+    <circle class="dot" cx="147" cy="166" r="1.5"/>
+    <circle class="dot" cx="152" cy="166" r="1.5"/>
+    <circle class="dot" cx="157" cy="166" r="1.5"/>
+    <circle class="dot" cx="122" cy="171" r="1.5"/>
+    <circle class="dot" cx="127" cy="171" r="1.5"/>
+    <circle class="dot" cx="132" cy="171" r="1.5"/>
+    <circle class="dot" cx="137" cy="171" r="1.5"/>
+    <circle class="dot" cx="142" cy="171" r="1.5"/>
+    <circle class="dot" cx="147" cy="171" r="1.5"/>
+    <circle class="dot" cx="152" cy="171" r="1.5"/>
+    <circle class="dot" cx="157" cy="171" r="1.5"/>
+  </g>
+  <text class="ttl" x="115" y="206" text-anchor="middle">Neural recording</text>
+  <text class="sub" x="115" y="226" text-anchor="middle">attempted speech</text>
+  <text class="sub" x="115" y="244" text-anchor="middle">128 electrodes</text>
+  <text class="mono" x="115" y="272" text-anchor="middle">T × 256 · 20 ms bins</text>
+
+  <line class="arrow" x1="210" y1="209" x2="238" y2="209" marker-end="url(#a)"/>
+
+  <!-- Decoder -->
+  <text class="tag" x="240" y="76">THIS REPO</text>
+  <rect class="main" x="240" y="84" width="290" height="250" rx="10"/>
+  <text class="ttl" x="258" y="112">GRU phoneme decoder</text>
+  <line class="rule" x1="258" y1="124" x2="514" y2="124"/>
+  <text class="row" x="258" y="150">Gaussian smoothing</text><text class="rowd" x="514" y="150" text-anchor="end">σ = 2</text>
+  <text class="row" x="258" y="182">Day-specific transform</text><text class="rowd" x="514" y="182" text-anchor="end">per session</text>
+  <text class="row" x="258" y="214">Temporal unfold</text><text class="rowd" x="514" y="214" text-anchor="end">32 bins, stride 4</text>
+  <text class="row" x="258" y="246">Bidirectional GRU</text><text class="rowd" x="514" y="246" text-anchor="end">5 layers × 512</text>
+  <text class="row" x="258" y="278">Linear</text><text class="rowd" x="514" y="278" text-anchor="end">41 classes</text>
+  <text class="row" x="258" y="310">CTC</text><text class="rowd" x="514" y="310" text-anchor="end">greedy decode</text>
+
+  <line class="arrow" x1="530" y1="209" x2="558" y2="209" marker-end="url(#a)"/>
+
+  <!-- Output -->
+  <rect class="box" x="560" y="154" width="170" height="110" rx="8"/>
+  <text class="ttl" x="645" y="184" text-anchor="middle">Phoneme sequence</text>
+  <text class="mono" x="645" y="214" text-anchor="middle">HH AH L OW SIL</text>
+  <text class="sub" x="645" y="238" text-anchor="middle">“hello”</text>
+
+  <line class="arrowg" x1="730" y1="209" x2="758" y2="209" marker-end="url(#ag)"/>
+
+  <!-- Not implemented -->
+  <rect class="ghost" x="760" y="164" width="180" height="90" rx="8"/>
+  <text class="ttl faded" x="850" y="194" text-anchor="middle">Language model</text>
+  <text class="sub" x="850" y="214" text-anchor="middle">→ words</text>
+  <text class="sub" x="850" y="238" text-anchor="middle" font-style="italic">not implemented</text>
+
+</svg>
